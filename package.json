@@ -1,0 +1,45 @@
+{
+  "name": "better-stack",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "biome check --write .",
+    "ruler:apply": "pnpm dlx @intellectronica/ruler@latest apply --local-only",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @better-stack/db db:push",
+    "db:studio": "turbo -F @better-stack/db db:studio",
+    "db:generate": "turbo -F @better-stack/db db:generate",
+    "db:migrate": "turbo -F @better-stack/db db:migrate",
+    "db:start": "turbo -F @better-stack/db db:start",
+    "db:watch": "turbo -F @better-stack/db db:watch",
+    "db:stop": "turbo -F @better-stack/db db:stop",
+    "db:down": "turbo -F @better-stack/db db:down"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "@biomejs/biome": "2.2.6",
+    "ultracite": "5.6.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "tsdown": "^0.15.5",
+    "@types/node": "^22.13.11"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "pnpm dlx ultracite fix --unsafe"
+    ]
+  },
+  "packageManager": "pnpm@8.15.4"
+}
