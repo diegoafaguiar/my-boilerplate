@@ -1,0 +1,35 @@
+{
+  "name": "@better-stack/api",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./src/*.ts"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsdown"
+  },
+  "devDependencies": {
+    "tsdown": "^0.15.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@trpc/server": "^11.5.0",
+    "@trpc/client": "^11.5.0",
+    "next": "^16.0.0",
+    "drizzle-orm": "^0.44.2",
+    "ai": "^5.0.49",
+    "@ai-sdk/google": "^2.0.13",
+    "dotenv": "^17.2.2",
+    "zod": "^4.1.12",
+    "@better-stack/auth": "workspace:*",
+    "@better-stack/db": "workspace:*"
+  }
+}
